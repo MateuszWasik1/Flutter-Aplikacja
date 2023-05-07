@@ -1,4 +1,6 @@
+import 'package:apki_mobilne/account.dart';
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +14,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int currentPage = 0;
+  List<Widget> pages = const [
+    HomePage(),
+    AccountPage()
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,26 +27,28 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.grey,
           title: const Text('Aplikacje Mobilne Mateusz Wąsik 13349'),
         ),
-        body: const Center(
-          child: SizedBox(
-            child: Text("hi mom"),
-          ),
-        ),
+        body: pages[currentPage],
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.arrow_upward),
           onPressed: () => print('pressed'),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            const BottomNavigationBarItem(
+        bottomNavigationBar: NavigationBar(
+          destinations: const [
+            NavigationDestination(
               icon: Icon(Icons.home),
               label: "Home",
             ),
-             const BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.account_circle),
               label: "Account"
             ),
-          ]
+          ],
+          onDestinationSelected: (int index){
+            setState(() {
+              currentPage = index;              
+            });
+          },
+          selectedIndex: currentPage,
         ),
         drawer: const Drawer(
           child: Text('yo'),
