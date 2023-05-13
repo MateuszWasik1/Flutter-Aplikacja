@@ -1,14 +1,24 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<Photos> fetchPhotos() async {
-  final response = await http
-      .get(Uri.parse('https://jsonplaceholder.typicode.com/photos/1'));
+Future<List<Photos>> fetchPhotos() async {
+  final response =
+      await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
 
   if (response.statusCode == 200) {
-    return Photos.fromJson(jsonDecode(response.body));
+    var jsonResponse = jsonDecode(response.body);
+    List<Photos> photos = [];
+
+    for (var i in jsonResponse) {
+      photos.add(Photos(
+          albumId: i['albumId'],
+          id: i['id'],
+          title: i['title'],
+          url: i['url'],
+          thumbnailUrl: i['thumbnailUrl']));
+    }
+    return photos;
   } else {
     throw Exception('Failed to load photos');
   }
@@ -48,7 +58,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  late Future<Photos> futurePhotos;
+  late Future<List<Photos>> futurePhotos;
 
   @override
   void initState() {
@@ -61,16 +71,28 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
-          child: FutureBuilder<Photos>(
+          child: FutureBuilder<List<Photos>>(
             future: futurePhotos,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 print('run command flutter run --web-renderer html');
-                return Image.network(
-                  snapshot.data!.url,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 50,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Image.network(
+                            snapshot.data![index].url,
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            height: MediaQuery.of(context).size.height * 0.53,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 );
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
