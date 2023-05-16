@@ -1,4 +1,5 @@
 import 'package:apki_mobilne/account.dart';
+import 'package:apki_mobilne/search.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
 
@@ -17,7 +18,8 @@ class _MyAppState extends State<MyApp> {
   int currentPage = 0;
   List<Widget> pages = const [
     HomePage(),
-    AccountPage()
+    SearchPage(),
+    AccountPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,10 @@ class _MyAppState extends State<MyApp> {
             NavigationDestination(
               icon: Icon(Icons.home),
               label: "Home",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.screen_search_desktop_rounded),
+              label: "Search",
             ),
             NavigationDestination(
               icon: Icon(Icons.account_circle),
