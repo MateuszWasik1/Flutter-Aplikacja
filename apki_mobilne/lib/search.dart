@@ -68,41 +68,36 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
-      body: SingleChildScrollView(
-        child: Center(
-          child: FutureBuilder<List<Photos>>(
-            future: futurePhotos,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                print('run command flutter run --web-renderer html');
-                return SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 50,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0,
-                          vertical: 8.0,
-                        ),
-                        child: Image.network(
-                          snapshot.data![index].url,
-                        ),
-                      );
-                    },
-                  ),
-                );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+    return Center(
+      child: FutureBuilder<List<Photos>>(
+        future: futurePhotos,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            print('run command flutter run --web-renderer html');
+            return SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 50,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 8.0,
+                    ),
+                    child: Image.network(
+                      snapshot.data![index].url,
+                    ),
+                  );
+                },
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
 
-              return const CircularProgressIndicator();
-            },
-          ),
-        ),
+          return const CircularProgressIndicator();
+        },
       ),
     );
   }
