@@ -146,13 +146,22 @@ class _AccountPageState extends State<AccountPage> {
                                     child: Text(
                                       'Name:',
                                       style: TextStyle(
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.bold,
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      snapshot.data!.name,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
-                                  Text(snapshot.data!.name,
-                                      style: const TextStyle(fontSize: 16.0)),
                                 ],
                               ),
                               Row(
@@ -165,12 +174,20 @@ class _AccountPageState extends State<AccountPage> {
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
-                                  Text(
-                                    snapshot.data!.username,
-                                    style: const TextStyle(fontSize: 16.0),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      snapshot.data!.username,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -184,12 +201,20 @@ class _AccountPageState extends State<AccountPage> {
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
-                                  Text(
-                                    snapshot.data!.email,
-                                    style: const TextStyle(fontSize: 16.0),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      snapshot.data!.email,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -203,13 +228,21 @@ class _AccountPageState extends State<AccountPage> {
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
                                   Expanded(
-                                    child: Text(
-                                      snapshot.data!.address.toString(),
-                                      style: const TextStyle(fontSize: 16.0),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 8.0),
+                                      child: Text(
+                                        snapshot.data!.address.toString(),
+                                        style: const TextStyle(
+                                          fontSize: 16.0,
+                                          color: Colors.white,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -224,12 +257,20 @@ class _AccountPageState extends State<AccountPage> {
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
-                                  Text(
-                                    snapshot.data!.phone,
-                                    style: const TextStyle(fontSize: 16.0),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      snapshot.data!.phone,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -243,12 +284,20 @@ class _AccountPageState extends State<AccountPage> {
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
-                                  Text(
-                                    snapshot.data!.website,
-                                    style: const TextStyle(fontSize: 16.0),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      snapshot.data!.website,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -291,12 +340,21 @@ class _AccountPageState extends State<AccountPage> {
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Row(
-                                children: [
-                                  Expanded(
-                                    child: Text(snapshot.data![index].body),
-                                  ),
-                                ],
+                              subtitle: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        snapshot.data![index].body,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
