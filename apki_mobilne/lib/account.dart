@@ -43,7 +43,7 @@ class User {
   final String name;
   final String username;
   final String email;
-  final Object address;
+  final UserAddress address;
   final String phone;
   final String website;
 
@@ -63,9 +63,29 @@ class User {
       name: json['name'],
       username: json['username'],
       email: json['email'],
-      address: json['address'],
+      address: UserAddress.fromJson(json['address']),
       phone: json['phone'],
       website: json['website'],
+    );
+  }
+}
+
+class UserAddress {
+  final String city;
+  final String street;
+  final String suite;
+
+  const UserAddress({
+    required this.city,
+    required this.street,
+    required this.suite,
+  });
+
+  factory UserAddress.fromJson(Map<String, dynamic> json) {
+    return UserAddress(
+      city: json['city'],
+      street: json['street'],
+      suite: json['suite'],
     );
   }
 }
@@ -212,8 +232,8 @@ class _AccountPageState extends State<AccountPage> {
                             ],
                           ),
                           Row(
-                            children: [
-                              const Padding(
+                            children: const [
+                              Padding(
                                 padding: EdgeInsets.symmetric(vertical: 8.0),
                                 child: Text(
                                   'Address:',
@@ -224,16 +244,90 @@ class _AccountPageState extends State<AccountPage> {
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8.0),
-                                  child: Text(
-                                    snapshot.data!.address.toString(),
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      color: Colors.white,
-                                    ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                  horizontal: 16.0,
+                                ),
+                                child: Text(
+                                  'City:',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Text(
+                                  snapshot.data!.address.city,
+                                  style: const TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                  horizontal: 16.0,
+                                ),
+                                child: Text(
+                                  'Street:',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Text(
+                                  snapshot.data!.address.street,
+                                  style: const TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                  horizontal: 16.0,
+                                ),
+                                child: Text(
+                                  'Suite:',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Text(
+                                  snapshot.data!.address.suite,
+                                  style: const TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),
