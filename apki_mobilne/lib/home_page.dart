@@ -6,6 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'DISCOVER OUR WORLD.',
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'Share your moments, meet inspiring creators and share your passion.',
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -56,7 +57,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   "FIND YOUR PLACE IN THE WORLD OF PHOTOGRAPHY.",
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -70,7 +71,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'Our app will allow you to share your story, find inspiring content and connect with other photography enthusiasts.',
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -90,7 +91,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   "CREATE YOUR VIRTUAL GALLERY FULL OF UNFORGETABLE MOMENTS.",
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -104,7 +105,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'With our application, you will discover unique content, communicate with artists and inspire others with your passions.',
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -124,7 +125,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   "IMMERSE YOURSELF INTO AMAZING WORLD OF VISUAL STORY TELLING.",
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -138,7 +139,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'Our application will allow you to explore beautiful photos, find inspiration and share your own creations with others..',
                   style: TextStyle(
-                    color: Color(0xFF111111),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
