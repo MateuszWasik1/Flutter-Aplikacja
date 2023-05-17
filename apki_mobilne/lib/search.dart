@@ -69,6 +69,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
       body: SingleChildScrollView(
         child: Center(
           child: FutureBuilder<List<Photos>>(
