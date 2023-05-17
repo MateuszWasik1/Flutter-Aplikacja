@@ -83,14 +83,14 @@ class _SearchPageState extends State<SearchPage> {
                     shrinkWrap: true,
                     itemCount: 50,
                     itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Image.network(
-                            snapshot.data![index].url,
-                            width: MediaQuery.of(context).size.width * 0.9,
-                            height: MediaQuery.of(context).size.height * 0.53,
-                          ),
-                        ],
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 8.0,
+                        ),
+                        child: Image.network(
+                          snapshot.data![index].url,
+                        ),
                       );
                     },
                   ),
